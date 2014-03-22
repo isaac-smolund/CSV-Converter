@@ -1,0 +1,31 @@
+<script src="http://ajax.googleapis.com/ajax/libs/jquery/1.10.2/jquery.min.js"></script>
+<script>
+    var docs = 0;
+    $(document).ready(function(){
+        $("#grade").click(function(){
+            $("#grade").val("");
+        })
+        $("#grade").focusout(function() {
+            if ($("#grade").val() == (""))
+                ($("#grade").val("Enter Grade Here..."));
+        })
+        $("#text").click(function(){
+            $("#text").val("");
+        })
+        $("#text").focusout(function() {
+            if ($("#text").val() == (""))
+                ($("#text").val("Paste Your Document's Text Here..."));
+        })
+        $("#addGrade").click(function(){
+            bingo = ($("#csvtext").val() + $("#grade").val() + ', "' + $("#text").val().replace(/"/g,"'") + '"')
+            $("#csvtext").val(bingo + "Mg9Nfp");
+            $("#grade").val("Enter Grade Here...");
+            $("#text").val("Paste Your Document's Text Here...");
+            docs++;
+            $("#DocNum").text(docs);
+        });
+        $("#reset").click(function(){
+            $("#csvtext").val("numeric_score, text ");
+        })
+    });
+</script>

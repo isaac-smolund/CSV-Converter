@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>{{ title }}</title>
+    <link rel='stylesheet' href='/stylesheets/style.css' />
+    {{> jqwerty}}
+</head>
+<body style="">
+    <h1>{{ title }}</h1>
+    {{> directions}}
+    <div class="container">
+        {{{yield}}}
+    </div>
+
+    <div>
+        <input type="button" id="addGrade" value="Next Grade">
+        <input type="button" id="reset" value="Start Over">
+    </div>
+    <br />
+    <form method="post" action="/routes">
+        {{> hiddentext}}
+        <input type="submit" id="submit" value="Convert to CSV" />
+    </form>
+
+</body>
+</html>
