@@ -4,28 +4,67 @@
     $(document).ready(function(){
         $("#grade").focusin(function(){
             $("#grade").val("");
-        })
+        });
         $("#grade").focusout(function() {
             if ($("#grade").val() == (""))
                 ($("#grade").val("Enter Grade Here..."));
-        })
+        });
         $("#text").focusin(function(){
             $("#text").val("");
-        })
+        });
         $("#text").focusout(function() {
             if ($("#text").val() == (""))
                 ($("#text").val("Paste Your Document's Text Here..."));
-        })
+        });
+
         $("#addGrade").click(function(){
-            bingo = ($("#csvtext").val() + $("#grade").val() + ', "' + $("#text").val().replace(/"/g,"'") + '"')
+            bingo = ($("#csvtext").val() + $("#grade").val() + ', "' + $("#text").val().replace(/"/g,"'") + '"');
             $("#csvtext").val(bingo + "Mg9Nfp");
             $("#grade").val("Enter Grade Here...");
             $("#text").val("Paste Your Document's Text Here...");
             docs++;
             $("#DocNum").text(docs);
-        });
+            document.getElementById("pastDocs").innerHTML += "<div class='docBox' id ='docBox' >" + docs + "</div>";
+
+            $(".docBox").slideDown(130);
+            $(".docBox").mouseover(function() {
+                $(this).css("background-color","midnightblue");
+                $(this).css("color","white");
+            });
+            $(".docBox").mouseout(function() {
+                $(this).css("background-color","lightblue");
+                $(this).css("color","black");
+            });
+            /*This isn't working yet:*/
+
+            /*$(".docBox").click(function() {
+                var counter = 0;
+                var limit = (parseInt($(this).text()) - 1) * 2 - 1;
+                for(var i = 0; i < bingo.length; i++) {
+                    if (bingo.charAt(i) == '"') {
+                        if (counter < limit) counter++;
+                        else {
+                            var grade = bingo.substring(i, bingo.indexOf('"',i ));
+                            console.log(i + " " + bingo.indexOf('"',i + 1));
+                            var text = bingo.substring(i + grade.length, bingo.indexOf('"', i + grade.length + 1));
+                            console.log(grade);
+                            console.log(text);
+                            $("#grade").val(grade);
+                            $("#text").val(text);
+                            return;
+                        }
+                    }
+                }*/
+            });
+
         $("#reset").click(function(){
+            $("#grade").val("Enter Grade Here...");
+            $("#text").val("Paste Your Document's Text Here...");
             $("#csvtext").val("numeric_score, text ");
+            docs = 0;
+            $("#DocNum").text(docs);
+            $(".docBox").slideUp();
+            document.getElementById("pastDocs").innerHTML = "";
         })
     });
 </script>
