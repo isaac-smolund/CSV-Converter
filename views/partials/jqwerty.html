@@ -2,14 +2,14 @@
 <script>
     var docs = 0;
     $(document).ready(function(){
-        $("#grade").click(function(){
+        $("#grade").focusin(function(){
             $("#grade").val("");
         })
         $("#grade").focusout(function() {
             if ($("#grade").val() == (""))
                 ($("#grade").val("Enter Grade Here..."));
         })
-        $("#text").click(function(){
+        $("#text").focusin(function(){
             $("#text").val("");
         })
         $("#text").focusout(function() {
