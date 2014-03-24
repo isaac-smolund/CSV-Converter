@@ -16,6 +16,7 @@ app.set 'partials',
   hiddentext: 'partials/hiddentext'
   jqwerty: 'partials/jqwerty'
   directions: 'partials/directions'
+  head: 'partials/head'
 
 app.configure ->
   app.set "port", process.env.PORT or 3000

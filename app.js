@@ -24,7 +24,8 @@ Module dependencies.
   app.set('partials', {
     hiddentext: 'partials/hiddentext',
     jqwerty: 'partials/jqwerty',
-    directions: 'partials/directions'
+    directions: 'partials/directions',
+    head: 'partials/head'
   });
 
   app.configure(function() {

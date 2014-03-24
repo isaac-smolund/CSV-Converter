@@ -4,6 +4,7 @@
     <title>{{ title }}</title>
     <link rel='stylesheet' href='/stylesheets/style.css' />
     {{> jqwerty}}
+    {{> head}}
 </head>
 <body style="">
     <h1>{{ title }}</h1>
@@ -21,6 +22,7 @@
         {{> hiddentext}}
         <input type="submit" id="submit" value="Convert to CSV" />
     </form>
-
+    <br />
+    <div id = "pastDocs"></div>
 </body>
 </html>
